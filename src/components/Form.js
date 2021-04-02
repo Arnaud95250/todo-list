@@ -2,12 +2,14 @@ import React from "react";
 
 const Form = ({ handleSubmit, handleChange, input }) => {
   return (
-    <form onSubmit={e => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <input
         value={input}
-        onChange={e => handleChange(e)}
+        className="hidden_pc"
+        onChange={(e) => handleChange(e)}
         placeholder="new task"
       />
+
       <input value="Add task" type="submit" />
     </form>
   );

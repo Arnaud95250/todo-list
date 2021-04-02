@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 
 import Header from "./components/Header";
 import Task from "./components/Task";
@@ -19,12 +19,12 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   // fonction déclenchée lorsque l'on tape quelque chose dans l'input
-  const handleChange = e => {
+  const handleChange = (e) => {
     setInput(e.target.value);
   };
 
   // fonction déclenchée lorsque l'on clique sue le bouton "Add task"
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     // empêcher le rafraîchissement de la page
     e.preventDefault();
     // si rien n'a été rentré dans l'input
@@ -39,7 +39,7 @@ const App = () => {
         // si la tâche rentrée (input) est supérieure à 20 caractères, on ne prend que les 20 premiers et on ajoute '...'
         // sinon, on ajoute la tâche rentrée en entier
         title: input.length > 20 ? input.substring(0, 30) + "..." : input,
-        done: false
+        done: false,
       });
       // mise à jour du state "tasks" avec le tableau à jour
       setTasks(tasksCopy);
@@ -49,7 +49,7 @@ const App = () => {
   };
 
   // fonction appelée lorsque l'on clique sur une checkbox
-  const handleClickCheck = index => {
+  const handleClickCheck = (index) => {
     let tasksCopy = [...tasks];
     // grâce à l'index du .map(), on peut retrouver la tâche concernée dans le tableau "tasks"
     // on modifie la valeur de la clé "done", qui passe de "false" à "true" et inversement
@@ -58,7 +58,7 @@ const App = () => {
   };
 
   // fonction appelée lorsque l'on clique sur la poubelle
-  const handleClickTrash = index => {
+  const handleClickTrash = (index) => {
     // il faut supprimer l'élément cliqué du tableau "tasks"
     let tasksCopy = [...tasks];
     tasksCopy.splice(tasksCopy.indexOf(tasksCopy[index]), 1);
